@@ -7,7 +7,7 @@ import { map, Observable } from 'rxjs';
 })
 export class PaisesService {
   private username = 'blaagrooupsas'; // Reemplaza con tu usuario de GeoNames
-  private apiUrl = 'http://api.geonames.org';
+  private apiUrl = 'https://secure.geonames.org';
   constructor(private http: HttpClient) {}
 
   // Obtener países de América

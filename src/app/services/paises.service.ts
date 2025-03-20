@@ -28,7 +28,7 @@ export class PaisesService {
 
   // Obtener ciudades de un país
   obtenerCiudades(paisCode: string): Observable<string[]> {
-    const url = `http://api.geonames.org/searchJSON?country=${paisCode}&featureClass=P&maxRows=1000&username=${this.username}`;
+    const url = `${this.apiUrl}/searchJSON?country=${paisCode}&featureClass=P&maxRows=1000&username=${this.username}`;
 
     return this.http.get<any>(url).pipe(
       map(

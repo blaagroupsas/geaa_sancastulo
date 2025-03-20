@@ -40,79 +40,10 @@
         <h1 class="hero-title">Departamentos en Coyoacán <br> <span>Residencial San Cástulo</span></h1>
       </div>
       <!-- Formulario -->
-      <div class="col-md-6">
-        <div class="form-container">
-          <h2 class="form-title">Formulario</h2>
-          <form [formGroup]="formulario" (ngSubmit)="enviarFormulario('header')">
-            <input type="hidden" formControlName="origen">
-            <!-- Nombre completo -->
-            <div class="mb-3">
-              <input id="nombre" type="text" class="form-control" formControlName="nombre" placeholder="Nombre completo"
-                [ngClass]="{'is-invalid': formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched}" />
-              <div class="invalid-feedback"
-                *ngIf="formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched">
-                El nombre es obligatorio y debe contener solo letras.
-              </div>
-            </div>
-
-            <!-- Celular -->
-            <div class="mb-3">
-              <input id="celular" type="text" class="form-control" formControlName="celular" placeholder="Celular"
-                [ngClass]="{'is-invalid': formulario.get('celular')?.invalid && formulario.get('celular')?.touched}" />
-              <div class="invalid-feedback"
-                *ngIf="formulario.get('celular')?.invalid && formulario.get('celular')?.touched">
-                Ingresa un número de celular válido de México (10 dígitos).
-              </div>
-            </div>
-
-            <!-- Email -->
-            <div class="mb-3">
-              <input id="email" type="email" class="form-control" formControlName="email" placeholder="Email"
-                [ngClass]="{'is-invalid': formulario.get('email')?.invalid && formulario.get('email')?.touched}" />
-              <div class="invalid-feedback"
-                *ngIf="formulario.get('email')?.invalid && formulario.get('email')?.touched">
-                Ingresa un email válido.
-              </div>
-            </div>
-
-            <!-- Ciudad -->
-            <div class="mb-3">
-              <select id="ciudad" class="form-control" formControlName="ciudad">
-                <option value="">Seleccione una ciudad</option>
-                <option *ngFor="let ciudad of ciudades" [value]="ciudad">{{ ciudad }}</option>
-              </select>
-              <div class="invalid-feedback"
-                *ngIf="formulario.get('ciudad')?.invalid && formulario.get('ciudad')?.touched">
-                Selecciona una ciudad.
-              </div>
-            </div>
-
-            <!-- Departamento de interés -->
-            <div class="mb-3">
-              <select id="departamento" class="form-control" formControlName="departamento">
-                <option value="">Seleccione un departamento</option>
-                <option *ngFor="let departamento of departamentos" [value]="departamento">{{ departamento }}</option>
-              </select>
-              <div class="invalid-feedback"
-                *ngIf="formulario.get('departamento')?.invalid && formulario.get('departamento')?.touched">
-                Selecciona un departamento.
-              </div>
-            </div>
-
-            <!-- Botón de envío -->
-            <button type="submit" class="btn btn-primary w-100" [disabled]="formulario.invalid || enviando">
-              <span *ngIf="!enviando">Más información</span>
-              <span *ngIf="enviando">
-                <i class="spinner-border spinner-border-sm"></i> Enviando...
-              </span>
-            </button>
-
-            <!-- Mensaje de éxito o error -->
-            <div *ngIf="mensaje" class="mt-3 alert"
-              [ngClass]="{'alert-success': mensajeExito, 'alert-danger': !mensajeExito}">
-              {{ mensaje }}
-            </div>
-          </form>
+      <div class="col-md-6 d-flex justify-content-center">
+        <div class="form-container w-100">
+          <h2 class="form-title d-block text-center">Formulario</h2>
+          <app-formulario></app-formulario>
         </div>
       </div>
     </div>
@@ -177,9 +108,9 @@
     <h2 class="title">Ubicación estratégica</h2>
     <div class="mapa">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353159046!3d-37.8162797420211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf57728c556b78c4d!2sMelbourne%2C%20Australia!5e0!3m2!1ses-419!2sco!4v1615315483729!5m2!1ses-419!2sco"
-        allowfullscreen="" loading="lazy">
-      </iframe>
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d50524.688700038605!2d-99.17122114200653!3d19.30319305812376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDE4JzM4LjciTiA5OcKwMDknMDMuMSJX!5e0!3m2!1ses!2sco!4v1742499446409!5m2!1ses!2sco"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -215,20 +146,27 @@
     </div>
   </div>
 </section>
-<!-- Departamentos -->
-<section id="departamentos" class="departamentos-modelo">
-  <h2>4 Departamentos modelo</h2>
-  <div class="departamentos-container">
-    <div class="departamento-card" *ngFor="let departamento of listadepartamentos">
-      <h3>{{ departamento.tipo }}</h3>
-      <p>A partir de {{ departamento.distribucion.area }}</p>
-      <button class="btn" data-bs-toggle="modal" data-bs-target="#modalDepartamento" (click)="abrirModal(departamento)">
-        Detalles
-      </button>
-      <button class="btn">Vista 360°</button>
+
+<section id="departamentos" class="departamentos-modelo py-5">
+  <div class="container departamentos-container">
+    <h2 class="text-center mb-4">4 Departamentos Modelo</h2>
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-lg-3" *ngFor="let departamento of listadepartamentos; let i = index">
+        <div class="departamento-card _{{i}}">
+          <h3 class="">{{ departamento.tipo }}</h3>
+          <p class="text-white">A partir de {{ departamento.distribucion.area }}</p>
+          <button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#modalDepartamento"
+            (click)="abrirModal(departamento)">
+            Detalles
+          </button>
+          <button class="btn btn-secondary w-100 mt-2" data-bs-toggle="modal" data-bs-target="#modalDepartamento360"
+            (click)="abrirModal360(departamento)">Vista 360°</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
 
 <!-- MODAL -->
 <div class="modal fade" id="modalDepartamento" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -261,6 +199,19 @@
     </div>
   </div>
 </div>
+<!-- MODAL 360-->
+<div class="modal fade" id="modalDepartamento360" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" *ngIf="departamentoSeleccionado">
+      <button type="button" class="close-btn" data-bs-dismiss="modal">&times;</button>
+      <h2 class="text-center">{{ departamentoSeleccionado.tipo }}</h2>
+      <div class="modal-body d-flex flex-md-row flex-column">
+        <div [innerHTML]="sanitizeHTML(departamentoSeleccionado.script)"></div>
+        <div [innerHTML]="sanitizeHTML(departamentoSeleccionado.html)"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- asesoria -->
 <section id="contacto" class="asesoria py-5">
@@ -277,86 +228,10 @@
       </div>
 
       <!-- Formulario -->
-      <div class="col-lg-6">
-        <div class="form-container p-4">
-          <h2 class="form-title text-center">Formulario</h2>
-          <form [formGroup]="formulario2" (ngSubmit)="enviarFormulario2('contacto')">
-            <input type="hidden" formControlName="origen">
-
-            <div class="row">
-              <!-- Nombre completo -->
-              <div class="col-12">
-                <input type="text" class="form-control mb-3" placeholder="Nombre completo" formControlName="nombre"
-                  [ngClass]="{'is-invalid': formulario2.get('nombre')?.invalid && formulario2.get('nombre')?.touched}" />
-                <div class="invalid-feedback"
-                  *ngIf="formulario2.get('nombre')?.invalid && formulario2.get('nombre')?.touched">
-                  El nombre es obligatorio y debe contener solo letras.
-                </div>
-              </div>
-
-              <!-- Celular -->
-              <div class="col-12 col-md-6">
-                <input type="text" class="form-control mb-3" placeholder="Celular" formControlName="celular"
-                  [ngClass]="{'is-invalid': formulario2.get('celular')?.invalid && formulario2.get('celular')?.touched}" />
-                <div class="invalid-feedback"
-                  *ngIf="formulario2.get('celular')?.invalid && formulario2.get('celular')?.touched">
-                  Ingresa un número de celular válido de México (10 dígitos).
-                </div>
-              </div>
-
-              <!-- Email -->
-              <div class="col-12 col-md-6">
-                <input type="email" class="form-control mb-3" placeholder="Email" formControlName="email"
-                  [ngClass]="{'is-invalid': formulario2.get('email')?.invalid && formulario2.get('email')?.touched}" />
-                <div class="invalid-feedback"
-                  *ngIf="formulario2.get('email')?.invalid && formulario2.get('email')?.touched">
-                  Ingresa un email válido.
-                </div>
-              </div>
-
-              <!-- Ciudad -->
-              <div class="col-12">
-                <select class="form-control mb-3" formControlName="ciudad">
-                  <option value="">Seleccione una ciudad</option>
-                  <option *ngFor="let ciudad of ciudades" [value]="ciudad">{{ ciudad }}</option>
-                </select>
-                <div class="invalid-feedback"
-                  *ngIf="formulario2.get('ciudad')?.invalid && formulario2.get('ciudad')?.touched">
-                  Selecciona una ciudad.
-                </div>
-              </div>
-
-              <!-- Departamento de interés -->
-              <div class="col-12">
-                <select class="form-control mb-3" formControlName="departamento">
-                  <option value="">Seleccione un departamento</option>
-                  <option *ngFor="let departamento of departamentos" [value]="departamento">{{ departamento }}</option>
-                </select>
-                <div class="invalid-feedback"
-                  *ngIf="formulario2.get('departamento')?.invalid && formulario2.get('departamento')?.touched">
-                  Selecciona un departamento.
-                </div>
-              </div>
-
-              <!-- Botón de envío con estado de carga -->
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary w-100" [disabled]="formulario2.invalid || enviando2">
-                  <span *ngIf="!enviando2">Más información</span>
-                  <span *ngIf="enviando2">
-                    <i class="spinner-border spinner-border-sm"></i> Enviando...
-                  </span>
-                </button>
-              </div>
-
-              <!-- Mensaje de éxito o error -->
-              <div class="col-12">
-                <div *ngIf="mensaje2" class="mt-3 alert"
-                  [ngClass]="{'alert-success': mensajeExito2, 'alert-danger': !mensajeExito2}">
-                  {{ mensaje2 }}
-                </div>
-              </div>
-            </div>
-          </form>
+      <div class="col-lg-6 d-flex justify-content-center">
+        <div class="form-container p-4 w-100">
+          <h2 class="form-title d-block text-center">Formulario</h2>
+          <app-formulario></app-formulario>
         </div>
       </div>
 
@@ -374,8 +249,9 @@
 </section>
 <!-- info seccion -->
 <section class="info-section container py-5">
+  <h2 class="text-center mb-4">Estamos aquí para guiarte hacia tu nuevo hogar</h2>
   <div class="row align-items-center">
-    <div class="col-md-6">
+    <div class="col-md-7">
       <p>
         Solo requerimos un enganche del 10% y aceptamos la mayoría de créditos, ya sea con recursos propios o
         hipotecarios de instituciones públicas o privadas.
@@ -385,10 +261,10 @@
       </p>
       <h3 class="text-secondary">¿Dudas?</h3>
       <a href="#contacto" class="btn btn-gold">Contáctanos</a>
-      <p class="fw-bold text-secondary mt-2">Estamos aquí para guiarte hacia tu nuevo hogar.</p>
+
     </div>
-    <div class="col-md-6 text-center">
-      <img src="images/familia-feliz-llave.png" alt="Familia feliz con llave en mano" class="img-fluid  ">
+    <div class="col-md-5 text-center">
+      <img src="images/fotofamilia.png" alt="Familia feliz con llave en mano" class="img-fluid img-info-section ">
     </div>
   </div>
 </section>
@@ -396,8 +272,8 @@
 <section class="faq-section container py-5">
   <div class="row align-items-center">
     <!-- Preguntas Frecuentes -->
-    <div class="col-md-6">
-      <h2 class="text-secondary fw-bold">Preguntas frecuentes</h2>
+    <div class="col-md-8">
+      <h2 class="text-secondary fw-bold mb-5">Preguntas frecuentes</h2>
       <div class="accordion" id="faqAccordion">
         <div class="accordion-item">
           <h2 class="accordion-header">
@@ -462,8 +338,8 @@
     </div>
 
     <!-- Imagen -->
-    <div class="col-md-6 text-center">
-      <img src="images/edificio-de-departamentos.png" alt="Edificio de departamentos" class="img-fluid ">
+    <div class="col-md-4 text-center">
+      <img src="images/fotopreguntasfrecuentes.png" alt="Edificio de departamentos" class="img-fluid img-faq-section ">
     </div>
   </div>
 </section>
@@ -493,8 +369,12 @@
         <ul class="footer-links list-unstyled">
           <li><i class="fas fa-map-marker-alt"></i> Dirección: San Cástulo 208, Pedregal de Sta Úrsula, Coyoacán</li>
           <li><i class="fab fa-whatsapp"></i> +52 5538884610 </li>
-          <li><i class="fas fa-envelope"></i> Correo electrónico</li>
-          <li><i class="fab fa-instagram"></i> Geaa proyectos inmobiliarios</li>
+          <li><i class="fas fa-envelope"></i> ventassancastulo&#64;gmail.com</li>
+          <li><i class="fab fa-facebook"></i> <a class="text-white"
+              href="https://www.facebook.com/geaaproyectosinmobiliarios" target="_blank">Geaa proyectos
+              inmobiliarios</a> </li>
+          <li><i class="fab fa-instagram"></i> <a class="text-white" href="" target="_blank">Geaa proyectos
+              inmobiliarios</a></li>
         </ul>
       </div>
     </div>

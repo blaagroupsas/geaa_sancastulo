@@ -6,130 +6,38 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { PaisesService } from './services/paises.service';
+import { FormularioComponent } from './componentes/formulario/formulario.component';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, NgIf, NgFor, NgClass],
+  standalone: true,
+  imports: [ReactiveFormsModule, NgIf, NgFor, FormularioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   title = 'landingsancastulo';
-  formulario!: FormGroup;
-  enviando = false; // Controla el estado de carga del botón
-  mensaje: string | null = null;
-  mensajeExito = false;
-  formulario2!: FormGroup;
-  enviando2 = false; // Estado de carga del botón
-  mensaje2: string | null = null;
-  mensajeExito2 = false;
-  // Lista de ciudades en México
-  ciudades: string[] = [
-    'Ciudad de México',
-    'Guadalajara',
-    'Monterrey',
-    'Querétaro',
-    'Mérida',
-    'Puebla',
-    'Tijuana',
-    'León',
-    'Cancún',
-    'Toluca',
-  ];
 
-  // Lista de departamentos de interés
-  departamentos: string[] = [
-    'Departamento 1',
-    'Departamento 2',
-    'Departamento 3',
-    'Departamento 4',
-  ];
+  constructor(
+    private fb: FormBuilder,
+    private paisesService: PaisesService,
+    private sanitizer: DomSanitizer
+  ) {}
 
-  constructor(private fb: FormBuilder) {}
+  ngOnInit() {}
 
-  ngOnInit() {
-    this.formulario = this.fb.group({
-      nombre: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-ZÀ-ÿ\\s]+$')],
-      ], // Solo letras y espacios
-      celular: [
-        '',
-        [Validators.required, Validators.pattern('^\\+?52\\d{10}$')],
-      ], // Celular de México (10 dígitos)
-      email: ['', [Validators.required, Validators.email]],
-      ciudad: ['', Validators.required],
-      departamento: ['', Validators.required],
-      origen: ['top'],
-    });
-    this.formulario2 = this.fb.group({
-      nombre: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-ZÀ-ÿ\\s]+$')],
-      ], // Solo letras y espacios
-      celular: [
-        '',
-        [Validators.required, Validators.pattern('^\\+?52\\d{10}$')],
-      ], // Celular de México (10 dígitos)
-      email: ['', [Validators.required, Validators.email]],
-      ciudad: ['', Validators.required],
-      departamento: ['', Validators.required],
-      origen: [''], // Campo oculto para diferenciar formularios
-    });
-  }
-
-  enviarFormulario(origen: string) {
-    if (this.formulario.invalid) return;
-
-    this.enviando = true;
-    this.mensaje = null;
-    this.formulario2.patchValue({ origen }); // Asigna el origen antes de enviar
-    // Simulación de envío (sustituir por una API real)
-    setTimeout(() => {
-      this.enviando = false;
-
-      if (Math.random() > 0.2) {
-        // Simulación de éxito (80% de probabilidad)
-        this.mensaje =
-          'Formulario enviado con éxito. Nos pondremos en contacto contigo.';
-        this.mensajeExito = true;
-        this.formulario.reset(); // Limpiar formulario después de éxito
-      } else {
-        this.mensaje =
-          'Hubo un error al enviar el formulario. Inténtalo de nuevo.';
-        this.mensajeExito = false;
-      }
-    }, 2000);
-  }
-  enviarFormulario2(origen: string) {
-    if (this.formulario2.invalid) return;
-
-    this.enviando2 = true;
-    this.mensaje2 = null;
-
-    this.formulario2.patchValue({ origen }); // Asigna el origen antes de enviar
-
-    // Simulación de envío (sustituir por una API real)
-    setTimeout(() => {
-      this.enviando2 = false;
-
-      if (Math.random() > 0.2) {
-        // Simulación de éxito (80% de probabilidad)
-        this.mensaje2 =
-          'Formulario enviado con éxito. Nos pondremos en contacto contigo.';
-        this.mensajeExito2 = true;
-        this.formulario2.reset(); // Limpiar formulario después de éxito
-      } else {
-        this.mensaje2 =
-          'Hubo un error al enviar el formulario. Inténtalo de nuevo.';
-        this.mensajeExito2 = false;
-      }
-    }, 2000);
-  }
   departamentoSeleccionado: any = null;
 
   abrirModal(departamento: any) {
     this.departamentoSeleccionado = departamento;
+  }
+  abrirModal360(departamento: any) {
+    this.departamentoSeleccionado = departamento;
+  }
+  sanitizeHTML(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
   listadepartamentos = [
     {
@@ -145,7 +53,10 @@ export class AppComponent implements OnInit {
         cocina_equipada: true,
         area_lavado: true,
       },
-      imagen: 'images/plano-departamento.png',
+      imagen: 'images/DepaTipo1/1.png',
+      script:
+        '<script src="https://static.kuula.io/embed.js" data-kuula="https://kuula.co/share/collection/7bCt9?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&margin=2&alpha=0.77&inst=es" data-width="100%" data-height="100%"></script>',
+      html: '<iframe width="100%" height="100%" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen scrolling="no" src="https://kuula.co/share/collection/7bCt9?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&margin=2&alpha=0.77&inst=es"></iframe>',
     },
     {
       tipo: 'Departamento Tipo 2',
@@ -160,7 +71,10 @@ export class AppComponent implements OnInit {
         cocina_equipada: true,
         area_lavado: true,
       },
-      imagen: 'images/plano-departamento.png',
+      imagen: 'images/DepaTipo2/2.png',
+      script:
+        ' <script src="https://static.kuula.io/embed.js" data-kuula="https://kuula.co/share/collection/7bV44?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&margin=2&alpha=0.77&inst=es" data-width="100%" data-height="640px"></script>',
+      html: '<iframe width="100%" height="640" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen scrolling="no" src="https://kuula.co/share/collection/7bV44?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&margin=2&alpha=0.77&inst=es"></iframe>',
     },
     {
       tipo: 'Departamento Tipo 3',
@@ -175,7 +89,10 @@ export class AppComponent implements OnInit {
         cocina_equipada: true,
         area_lavado: true,
       },
-      imagen: 'images/plano-departamento.png',
+      imagen: 'images/DepaTipo3/3.png',
+      script:
+        '<script src="https://static.kuula.io/embed.js" data-kuula="https://kuula.co/share/collection/7bV4M?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&margin=2&alpha=0.77&inst=es" data-width="100%" data-height="640px"></script>',
+      html: '<iframe width="100%" height="640" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen scrolling="no" src="https://kuula.co/share/collection/7bV4M?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&margin=2&alpha=0.77&inst=es"></iframe>',
     },
     {
       tipo: 'Departamento Tipo 4',
@@ -190,7 +107,10 @@ export class AppComponent implements OnInit {
         cocina_equipada: true,
         area_lavado: true,
       },
-      imagen: 'images/plano-departamento.png',
+      imagen: 'images/DepaTipo4/4.png',
+      script:
+        '<script src="https://static.kuula.io/embed.js" data-kuula="https://kuula.co/share/collection/7bV43?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&margin=2&alpha=0.77&inst=es" data-width="100%" data-height="640px"></script>',
+      html: '<iframe width="100%" height="640" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen scrolling="no" src="https://kuula.co/share/collection/7bV43?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&margin=2&alpha=0.77&inst=es"></iframe>',
     },
   ];
 }

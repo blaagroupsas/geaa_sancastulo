@@ -376,7 +376,6 @@ section {
       width: 100%;
       max-width: 300px; // Ajusta según necesidad
       height: 400px; // Ajusta según necesidad
-      min-width: 300px;
       background-size: cover;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -524,6 +523,9 @@ section {
     border-radius: 15px;
     text-align: center;
     max-width: fit-content;
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
   }
 
   .form-container {
@@ -660,6 +662,11 @@ section {
 
   .border-secondary {
     border-color: $secondary-color !important;
+  }
+  @media (max-width: 768px) {
+    .accordion {
+      min-width: fit-content;
+    }
   }
 }
 // footer

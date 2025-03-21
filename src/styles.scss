@@ -417,7 +417,8 @@ section {
           center;
       }
       @media (max-width: 768px) {
-        max-width: 100vw; // 80% del ancho de la pantalla
+        max-width: 100vw;
+        height: fit-content;
       }
     }
 
@@ -649,9 +650,7 @@ section {
   .img-faq-section {
     max-width: 400px;
   }
-  .accordion {
-    min-width: 650px;
-  }
+
   .accordion-button {
     background-color: $white-color;
     color: $dark-text;
@@ -691,11 +690,6 @@ section {
 
   .border-secondary {
     border-color: $secondary-color !important;
-  }
-  @media (max-width: 1024px) {
-    .accordion {
-      min-width: fit-content;
-    }
   }
 }
 // footer

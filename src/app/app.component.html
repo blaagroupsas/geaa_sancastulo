@@ -3,8 +3,9 @@
   <nav class="navbar navbar-expand-lg" aria-label="Menú principal">
     <div class="container">
       <!-- Logo -->
-      <a class="navbar-brand" href="index.html" title="Ir a la página de inicio">
-        <img src="images/logo.png" alt="Logo de San Cástulo, desarrollo inmobiliario" class="logo">
+      <a class="navbar-brand text-center " href="index.html" title="Ir a la página de inicio">
+        <img src="images/logo.png" alt="Logo de San Cástulo, desarrollo inmobiliario"
+          class="logo mx-auto d-block d-md-inline">
       </a>
 
       <!-- Botón de menú hamburguesa en móviles -->
@@ -17,14 +18,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link poppins-regular" href="#ubicacion" title="Ver ubicación del proyecto">Ubicación</a>
+            <a class="nav-link poppins-regular text-center text-md-start" href="#ubicacion"
+              title="Ver ubicación del proyecto">Ubicación</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link poppins-regular" href="#departamentos"
+            <a class="nav-link poppins-regular text-center text-md-start" href="#departamentos"
               title="Explorar departamentos disponibles">Departamentos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link poppins-regular" href="#contacto" title="Formulario de contacto">Contacto</a>
+            <a class="nav-link poppins-regular text-center text-md-start" href="#contacto"
+              title="Formulario de contacto">Contacto</a>
           </li>
         </ul>
       </div>
@@ -37,9 +40,10 @@
     <div class="row align-items-center">
       <!-- Texto principal -->
       <div class="col-md-6">
-        <img src="images/logo-geaa.png" alt="GEAA Proyectos Inmobiliarios - Desarrollos en Coyoacán" class="logo-geaa">
+        <img src="images/logo-geaa.png" alt="GEAA Proyectos Inmobiliarios - Desarrollos en Coyoacán"
+          class="logo-geaa mx-auto d-block d-md-inline">
         <header>
-          <h1 id="hero-title" class="hero-title">Departamentos en Coyoacán <br>
+          <h1 id="hero-title" class="hero-title text-center text-md-start">Departamentos en Coyoacán <br>
             <span>Residencial San Cástulo</span>
           </h1>
         </header>
@@ -91,24 +95,25 @@
       <!-- Descripción del proyecto -->
       <div class="col-md-5">
         <header>
-          <h2 id="proyecto-title" class="title">Tu hogar ideal en Coyoacán: Residencial San Cástulo</h2>
-          <h3 class="subtitle">Vive con lujo, confort y seguridad</h3>
+          <h2 id="proyecto-title" class="title text-center text-md-start">Tu hogar ideal en Coyoacán: Residencial San
+            Cástulo</h2>
+          <h3 class="subtitle text-center text-md-start">Vive con lujo, confort y seguridad</h3>
         </header>
-        <p class="text-justify">
+        <p class="text-justify text-center text-md-start">
           ¿Buscas un espacio que combine lujo, bienestar y una inversión inteligente para tu futuro?
           <strong>Residencial San Cástulo</strong> ofrece departamentos exclusivos con acabados de alta calidad,
           diseñados para superar tus expectativas.
         </p>
-        <p class="text-justify">
+        <p class="text-justify text-center text-md-start">
           Nuestros departamentos te brindan <strong>elegancia</strong> con espacios modernos,
           <strong>comodidad</strong> con ambientes amplios y funcionales,
           <strong>bienestar</strong> con zonas comunes excepcionales y
           <strong>tranquilidad</strong> con una inversión segura y con plusvalía.
         </p>
-        <p class="text-justify">
+        <p class="text-justify text-center text-md-start">
           No solo adquieres un departamento, <strong>inviertes en tu futuro</strong>.
         </p>
-        <p class="highlight">
+        <p class="highlight text-center text-md-start">
           <strong>¡Agenda una visita hoy mismo!</strong> Descubre por qué Residencial San Cástulo
           es la mejor opción para vivir e invertir en Coyoacán. <br>
           <strong>Tu hogar soñado te espera.</strong>
@@ -269,7 +274,7 @@
       <!-- Formulario -->
       <div class="col-lg-6 d-flex justify-content-center">
         <div class="form-container p-4 w-100">
-          <h2 class="form-title d-block text-center">Formulario</h2>
+          <h2 class="form-title d-block text-center">Solicita más información </h2>
           <app-formulario></app-formulario>
         </div>
       </div>
@@ -279,18 +284,27 @@
 </section>
 <!-- Video -->
 <section class="video-section">
-  <div class="container">
-    <video class="video-element" controls poster="images/image-video.png">
+  <div class="container text-center">
+    <video class="video-element w-100" controls poster="images/image-video.png">
       <source src="videos/video.mp4" type="video/mp4">
       Tu navegador no soporta el elemento de video.
     </video>
   </div>
 </section>
+
 <!-- info seccion -->
 <section class="info-section container py-5" aria-labelledby="info-title">
   <h2 class="text-center mb-4" id="info-title">Estamos aquí para guiarte hacia tu nuevo hogar</h2>
   <div class="row align-items-center">
-    <div class="col-md-7">
+
+    <!-- Imagen (Se muestra arriba en móviles) -->
+    <div class="col-12 col-md-5 text-center order-md-2 mb-4">
+      <img src="images/fotofamilia.png" alt="Familia recibiendo las llaves de su nuevo hogar"
+        class="img-fluid img-info-section">
+    </div>
+
+    <!-- Texto -->
+    <div class="col-12 col-md-7 order-md-1 text-center text-md-start">
       <p>
         Solo requerimos un enganche del 10% y aceptamos la mayoría de créditos, ya sea con recursos propios o
         hipotecarios de instituciones públicas o privadas.
@@ -301,90 +315,97 @@
       <h3 class="text-secondary">¿Dudas?</h3>
       <a href="#contacto" class="btn btn-gold">Contáctanos</a>
     </div>
-    <div class="col-md-5 text-center">
-      <img src="images/fotofamilia.png" alt="Familia recibiendo las llaves de su nuevo hogar"
-        class="img-fluid img-info-section">
-    </div>
+
   </div>
 </section>
 <!-- Preguntas frecuentes -->
 <section class="faq-section container py-5" aria-labelledby="faq-title">
   <div class="row align-items-center">
-    <!-- Preguntas Frecuentes -->
-    <div class="col-md-8">
-      <h2 class="text-secondary fw-bold mb-5" id="faq-title">Preguntas frecuentes</h2>
-      <div class="accordion" id="faqAccordion">
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
-              aria-expanded="false" aria-controls="faq1">
-              ¿Todos los departamentos tienen estacionamiento?
-            </button>
-          </h3>
-          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              La mayoría de departamentos cuentan con el beneficio de estacionamiento. Te recomendamos consultar la
-              disponibilidad de las unidades que lo incluyen.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
-              aria-expanded="false" aria-controls="faq2">
-              ¿Cuáles amenidades puedo encontrar en San Cástulo?
-            </button>
-          </h3>
-          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Una de las principales amenidades es nuestro roof garden, un espacio perfecto para celebrar fiestas
-              privadas o simplemente relajarte con vistas únicas de la ciudad.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
-              aria-expanded="false" aria-controls="faq3">
-              ¿Tengo descuento si pago de contado?
-            </button>
-          </h3>
-          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Podemos ofrecerte un descuento sobre el valor de tu departamento si realizas el pago de contado. Un
-              asesor de ventas te podrá orientar sobre este beneficio para ti y tu familia.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4"
-              aria-expanded="false" aria-controls="faq4">
-              ¿Me orientan para conseguir un crédito hipotecario?
-            </button>
-          </h3>
-          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              ¡Claro que sí! En el Proyecto Residencial San Cástulo, te brindamos asesoría personalizada para ayudarte
-              a conseguir un crédito hipotecario que se ajuste a tus necesidades. Trabajamos con diversas
-              instituciones financieras, tanto públicas como privadas, para facilitarte el proceso y encontrar la
-              mejor opción para ti.
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Imagen -->
-    <div class="col-md-4 text-center">
+    <!-- Imagen (Se muestra arriba en móviles) -->
+    <div class="col-12 col-md-4 text-center order-md-2 mb-4">
       <img src="images/fotopreguntasfrecuentes.png" alt="Edificio moderno de departamentos en San Cástulo"
         class="img-fluid img-faq-section">
     </div>
+
+    <!-- Preguntas Frecuentes -->
+    <div class="col-12 col-md-8 order-md-1">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-secondary fw-bold mb-5 text-center text-md-start" id="faq-title">Preguntas frecuentes</h2>
+        </div>
+        <div class="col-12">
+          <div class="accordion" id="faqAccordion">
+
+            <div class="accordion-item mb-3">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                  ¿Todos los departamentos tienen estacionamiento?
+                </button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  La mayoría de departamentos cuentan con el beneficio de estacionamiento. Te recomendamos consultar la
+                  disponibilidad de las unidades que lo incluyen.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                  ¿Cuáles amenidades puedo encontrar en San Cástulo?
+                </button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Una de las principales amenidades es nuestro roof garden, un espacio perfecto para celebrar fiestas
+                  privadas o simplemente relajarte con vistas únicas de la ciudad.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                  ¿Tengo descuento si pago de contado?
+                </button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Podemos ofrecerte un descuento sobre el valor de tu departamento si realizas el pago de contado. Un
+                  asesor de ventas te podrá orientar sobre este beneficio para ti y tu familia.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                  ¿Me orientan para conseguir un crédito hipotecario?
+                </button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  ¡Claro que sí! En el Proyecto Residencial San Cástulo, te brindamos asesoría personalizada para
+                  ayudarte
+                  a conseguir un crédito hipotecario que se ajuste a tus necesidades. Trabajamos con diversas
+                  instituciones financieras, tanto públicas como privadas, para facilitarte el proceso y encontrar la
+                  mejor opción para ti.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
   </div>
 </section>
 <!-- footer -->
@@ -399,7 +420,7 @@
 
       <!-- Texto descriptivo -->
       <div class="col-md-5 text-center text-md-start">
-        <p class="footer-text text-justify">
+        <p class="footer-text text-justify text-center text-md-center">
           En el Proyecto Residencial San Cástulo, encontrarás más que un departamento: un espacio diseñado para
           ofrecerte elegancia, comodidad y bienestar, respaldado por una inversión inteligente que garantiza plusvalía.
           Con amenidades exclusivas, facilidades de pago y asesoría personalizada, estamos aquí para hacer realidad tu
@@ -412,8 +433,8 @@
         <nav aria-label="Enlaces de contacto y redes sociales">
           <ul class="footer-links list-unstyled">
             <li><i class="fas fa-map-marker-alt"></i> Dirección: San Cástulo 208, Pedregal de Sta Úrsula, Coyoacán</li>
-            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/525538884610" class="text-white"
-                aria-label="Contáctanos por WhatsApp">+52 5538884610</a></li>
+            <li><i class="fab fa-whatsapp text-center text-md-center"></i> <a href="https://wa.me/525538884610"
+                class="text-white" aria-label="Contáctanos por WhatsApp">+52 5538884610</a></li>
             <li><i class="fas fa-envelope"></i> <a href="mailto:ventassancastulo@gmail.com" class="text-white"
                 aria-label="Enviar correo a ventas">ventassancastulo&#64;gmail.com</a></li>
             <li><i class="fab fa-facebook"></i> <a class="text-white"

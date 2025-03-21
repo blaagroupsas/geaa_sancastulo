@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://tu-api.com', // Reemplaza con la URL real de tu API
+  apiUrl: 'https://tu-api.com',
+  jsonUrl: '../../data/departamentos.json',
 };

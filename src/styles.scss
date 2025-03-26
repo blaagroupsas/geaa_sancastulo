@@ -643,12 +643,18 @@ section {
   }
   .img-info-section {
     max-width: 400px;
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
   }
 }
 // preguntas frecuentes
 .faq-section {
   .img-faq-section {
     max-width: 400px;
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
   }
 
   .accordion-button {
@@ -706,6 +712,10 @@ section {
   .footer-text {
     font-size: 0.95rem;
     line-height: 1.6;
+    text-align: justify;
+    @media (max-width: 768px) {
+      text-align: center;
+    }
   }
 
   .footer-links {
@@ -715,7 +725,9 @@ section {
       align-items: center;
       gap: 10px;
       margin-bottom: 8px;
-
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
       i {
         color: $gold-color;
         font-size: 1.2rem;
@@ -727,10 +739,10 @@ section {
 }
 .whatsapp-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
+  bottom: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
   background-color: #25d366;
   border-radius: 50%;
   display: flex;

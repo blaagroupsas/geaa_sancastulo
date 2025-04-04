@@ -23,6 +23,7 @@ export class FormularioComponent implements OnInit {
   enviando = false;
   mensaje = '';
   mensajeExito = false;
+  formularioEnviado = false; // Nueva variable para controlar la visibilidad del formulario
 
   // Lista de departamentos de interés
   departamentos: string[] = [
@@ -65,7 +66,7 @@ export class FormularioComponent implements OnInit {
   }
 
   enviarFormulario() {
-    if (this.formulario.invalid) return;
+    if (this.formulario.invalid || this.enviando) return;
 
     this.enviando = true;
     this.mensaje = '';
@@ -74,13 +75,19 @@ export class FormularioComponent implements OnInit {
       next: (res) => {
         this.mensaje = 'Formulario enviado con éxito.';
         this.mensajeExito = true;
+        this.formularioEnviado = true; // Ocultar formulario y mostrar mensaje
         this.formulario.reset();
       },
       error: () => {
         this.mensaje = 'Error al enviar el formulario. Inténtalo de nuevo.';
         this.mensajeExito = false;
+        this.formularioEnviado = true; // Ocultar formulario y mostrar mensaje
       },
       complete: () => (this.enviando = false),
     });
+  }
+
+  recargarPagina(): void {
+    window.location.reload();
   }
 }

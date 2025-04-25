@@ -184,14 +184,22 @@ section {
   padding: 80px 0;
   color: $white-color;
   position: relative;
-
+  .hero-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .container {
+    z-index: 2;
+  }
   .logo-geaa {
     max-width: 180px;
     margin-bottom: 20px;
   }
 
   .hero-title {
-    font-size: 50px;
+    font-size: 60px;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 

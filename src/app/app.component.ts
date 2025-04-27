@@ -20,6 +20,8 @@ import { DepartamentoService } from './services/departamento.service';
 export class AppComponent implements OnInit {
   title = 'landingsancastulo';
   listaDepartamentos: any[] = [];
+  listaProyectos: any[] = [];
+  departamentoSeleccionado: any = null;
   constructor(
     private fb: FormBuilder,
     private paisesService: PaisesService,
@@ -28,12 +30,19 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.listDepartamentos();
+    this.listProyectos();
+  }
+  listDepartamentos() {
     this.departamentosService.getDepartamentos().subscribe((data) => {
       this.listaDepartamentos = data;
     });
   }
-
-  departamentoSeleccionado: any = null;
+  listProyectos() {
+    this.departamentosService.getProyectos().subscribe((data) => {
+      this.listaProyectos = data;
+    });
+  }
 
   abrirModal(departamento: any) {
     this.departamentoSeleccionado = departamento;

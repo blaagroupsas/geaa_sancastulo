@@ -7,10 +7,14 @@ import { environment } from '../../environments/environment';
 })
 export class DepartamentoService {
   private jsonUrl = `${environment.jsonUrl}`;
+  private jsonUrlProyectos = `${environment.jsonUrlProyectos}`;
 
   constructor(private http: HttpClient) {}
 
   getDepartamentos(): Observable<any> {
     return this.http.get<any>(this.jsonUrl);
+  }
+  getProyectos(): Observable<any> {
+    return this.http.get<any>(this.jsonUrlProyectos);
   }
 }

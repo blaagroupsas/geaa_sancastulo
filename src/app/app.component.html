@@ -410,6 +410,55 @@
 
   </div>
 </section>
+<!-- Sección Otros Proyectos Residenciales -->
+<section id="otros-proyectos" class="py-5">
+  <div class="container">
+    <!-- Título de la sección -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-10 text-center">
+        <h2 class="section-title">Descubre Nuestros Otros Desarrollos</h2>
+        <div class="title-underline"></div>
+        <p class="section-intro mt-3">
+          En GEAA desarrollamos proyectos inmobiliarios de calidad en las mejores zonas de la Ciudad de México.
+          Conoce nuestras otras opciones residenciales que podrían interesarte.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tarjetas de proyectos -->
+    <div class="row mt-4">
+      @for (proyecto of listaProyectos; track $index) {
+      <!-- Proyecto $index -->
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="project-card">
+          <div class="project-image">
+            <img [src]="proyecto.imagen" alt="{{proyecto.titulo}}" class="img-fluid">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">{{proyecto.titulo}}</h3>
+            <p class="project-location">{{proyecto.ubicacion}}</p>
+            <p class="project-features">{{proyecto.features}}</p>
+            <div class="project-status status-{{proyecto.estado.codigo}}">{{proyecto.estado.texto}}</div>
+            <a [href]="proyecto.url" target="_blank" class="btn btn-details">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+      }
+
+
+    </div>
+
+    <!-- Botón Ver todos -->
+    <!-- <div class="row justify-content-center mt-4">
+      <div class="col-md-4 text-center">
+        <a href="proyectos.html" class="btn btn-primary btn-lg btn-ver-todos">Ver todos nuestros desarrollos</a>
+      </div>
+    </div> -->
+  </div>
+
+  <!-- Decoración de onda dorada -->
+  <div class="gold-wave"></div>
+</section>
 <!-- footer -->
 <footer class="footer-section py-5" aria-label="Pie de página con información de contacto y redes sociales">
   <div class="container">

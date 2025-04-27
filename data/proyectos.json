@@ -1,0 +1,46 @@
+[
+    {
+      "titulo": "Residencial Coyoacán Norte",
+      "ubicacion": "Coyoacán",
+      "features": "6 pisos • 1-3 recámaras",
+      "estado": {
+        "codigo": "ready",
+        "texto": "ENTREGA INMEDIATA"
+      },
+      "imagen": "images/proyectos/sample.jpg",
+      "url": "proyectos/residencial-coyoacan-norte.html"
+    },
+    {
+      "titulo": "Torres Pedregal",
+      "ubicacion": "Jardines del Pedregal",
+      "features": "8 pisos • 2-3 recámaras",
+      "estado": {
+        "codigo": "construction",
+        "texto": "EN CONSTRUCCIÓN"
+      },
+      "imagen": "images/proyectos/sample.jpg",
+      "url": "proyectos/torres-pedregal.html"
+    },
+    {
+      "titulo": "Condominios Del Valle",
+      "ubicacion": "Del Valle",
+      "features": "10 pisos • 1-2 recámaras",
+      "estado": {
+        "codigo": "construction",
+        "texto": "EN CONSTRUCCIÓN"
+      },
+      "imagen": "images/proyectos/sample.jpg",
+      "url": "proyectos/condominios-del-valle.html"
+    },
+    {
+      "titulo": "Residencial Polanco",
+      "ubicacion": "Polanco",
+      "features": "12 pisos • 2-4 recámaras",
+      "estado": {
+        "codigo": "coming",
+        "texto": "PRÓXIMAMENTE"
+      },
+      "imagen": "images/proyectos/sample.jpg",
+      "url": "proyectos/residencial-polanco.html"
+    }
+  ]

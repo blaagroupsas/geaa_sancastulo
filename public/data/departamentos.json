@@ -1,6 +1,7 @@
 [
   {
     "tipo": "Tipo 1",
+    "disponible": true,
     "distribucion": {
       "area": "70 m²",
       "habitaciones": 2,
@@ -18,6 +19,7 @@
   },
   {
     "tipo": "Tipo 2",
+    "disponible": true,
     "distribucion": {
       "area": "66 m²",
       "habitaciones": 2,
@@ -35,6 +37,7 @@
   },
   {
     "tipo": "Tipo 3",
+    "disponible": false,
     "distribucion": {
       "area": "50 m²",
       "habitaciones": 2,
@@ -52,6 +55,7 @@
   },
   {
     "tipo": "Tipo 4",
+    "disponible": false,
     "distribucion": {
       "area": "56 m²",
       "habitaciones": 2,

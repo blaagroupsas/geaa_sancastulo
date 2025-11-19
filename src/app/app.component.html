@@ -46,7 +46,7 @@
           class="logo-geaa mx-auto d-block d-md-inline">
         <header>
           <h1 id="hero-title" class="hero-title text-center text-md-start">Departamentos en venta en Coyoacán<br>
-            <span>Adquiere el tuyo desde $1.9 MDP</span>
+            <span>Adquiere el tuyo desde $2.7 MDP</span>
           </h1>
         </header>
       </div>
@@ -159,7 +159,7 @@
           class="icono img-fluid d-block mx-auto">
         <h3 class="titulo">Departamentos Modernos</h3>
         <p>
-          Ofrecemos <strong>departamentos tipo loft</strong> desde <strong>50 m²</strong>, con <strong>2
+          Ofrecemos <strong>departamentos tipo loft</strong> desde <strong>66 m²</strong>, con <strong>2
             recámaras</strong>,
           cocina, sala-comedor y <strong>elevadores de auto</strong> para estacionamiento opcional.
         </p>
@@ -184,18 +184,27 @@
     <h2 class="text-center mb-4">4 Departamentos Modelo</h2>
     <div class="row g-4">
       <div class="col-12 col-sm-6 col-lg-3" *ngFor="let departamento of listaDepartamentos; let i = index">
-        <div class="departamento-card _{{i}}">
+        <div class="departamento-card _{{i}}" [class.no-disponible]="!departamento.disponible">
           <div>
             <h3 class="">{{ departamento.tipo }}</h3>
             <p class="text-white">A partir de {{ departamento.distribucion.area }}</p>
+            <p class="text-danger fw-bold fs-6" *ngIf="!departamento.disponible" style="color: #dc3545 !important;">Vendido - No disponible</p>
           </div>
           <div>
-            <button class="btn  w-100" data-bs-toggle="modal" data-bs-target="#modalDepartamento"
-              (click)="abrirModal(departamento)">
+            <button class="btn w-100" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modalDepartamento"
+                    (click)="abrirModal(departamento)"
+                    [disabled]="!departamento.disponible">
               Detalles
             </button>
-            <button class="btn  w-100 mt-2" data-bs-toggle="modal" data-bs-target="#modalDepartamento360"
-              (click)="abrirModal360(departamento)">Vista 360°</button>
+            <button class="btn w-100 mt-2" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modalDepartamento360"
+                    (click)="abrirModal360(departamento)"
+                    [disabled]="!departamento.disponible">
+              Vista 360°
+            </button>
           </div>
 
         </div>
@@ -411,9 +420,9 @@
   </div>
 </section>
 <!-- Sección Otros Proyectos Residenciales -->
-<section id="otros-proyectos" class="py-5">
+<!-- <section id="otros-proyectos" class="py-5">
   <div class="container">
-    <!-- Título de la sección -->
+
     <div class="row justify-content-center mb-4">
       <div class="col-md-10 text-center">
         <h2 class="section-title">Descubre Nuestros Otros Desarrollos</h2>
@@ -425,10 +434,10 @@
       </div>
     </div>
 
-    <!-- Tarjetas de proyectos -->
+   
     <div class="row mt-4">
       @for (proyecto of listaProyectos; track $index) {
-      <!-- Proyecto $index -->
+   
       <div class="col-md-6 col-lg-3 mb-4">
         <div class="project-card">
           <div class="project-image">
@@ -448,17 +457,12 @@
 
     </div>
 
-    <!-- Botón Ver todos -->
-    <!-- <div class="row justify-content-center mt-4">
-      <div class="col-md-4 text-center">
-        <a href="proyectos.html" class="btn btn-primary btn-lg btn-ver-todos">Ver todos nuestros desarrollos</a>
-      </div>
-    </div> -->
+
   </div>
 
-  <!-- Decoración de onda dorada -->
+ 
   <div class="gold-wave"></div>
-</section>
+</section> -->
 <!-- footer -->
 <footer class="footer-section py-5" aria-label="Pie de página con información de contacto y redes sociales">
   <div class="container">

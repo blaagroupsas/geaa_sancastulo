@@ -37,7 +37,7 @@
   },
   {
     "tipo": "Tipo 3",
-    "disponible": false,
+    "disponible": true,
     "distribucion": {
       "area": "50 m²",
       "habitaciones": 2,
